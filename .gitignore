@@ -1,2 +1,4 @@
 /*.db
 dataSources.xml
+/.idea/*
+.idea/*
