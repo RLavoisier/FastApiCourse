@@ -52,4 +52,4 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.AWS_DNS }} 'sudo docker rm my-fastapi-container || true'
     - name: Run new container
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.AWS_DNS }} 'sudo docker run -d --name my-fastapi-container -p 8000:80 rlavoisier/fastapitest:latest'
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.AWS_DNS }} 'sudo docker run -d --name my-fastapi-container -p 80:8000 rlavoisier/fastapitest:latest'
