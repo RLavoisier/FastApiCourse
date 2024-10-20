@@ -1,8 +1,5 @@
 name: Build on DockerHub and Deploy to AWS
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
