@@ -40,6 +40,9 @@ jobs:
       run: |
         echo "${{ env.AWS_PRIVATE_KEY }}" > key.pem
         chmod 600 key.pem
+    - name: Login to docker
+      run: |
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.AWS_DNS }} 'sudo docker login -u ${{ env.DOCKERHUB_USERNAME }} -p ${{ env.DOCKERHUB_TOKEN }}'
     - name: Pull Docker image
       run: |
         ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.AWS_DNS }} 'sudo docker pull rlavoisier/fastapitest:latest'
